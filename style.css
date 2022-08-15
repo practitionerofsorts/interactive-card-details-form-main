@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+:root{
+--lg__active-input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+--Red__input-errors: hsl(0, 100%, 66%);
+--White: hsl(0, 0%, 100%);
+--Light-grayish-violet: hsl(270, 3%, 87%);
+--Dark-grayish-violet: hsl(279, 6%, 55%);
+--Very-dark-violet: hsl(278, 68%, 11%);
+
+--front-left: 3em;
+--front-top: 1em;
+--back-top: 17em;
+--back-left: 6em;
+
+--gap: 6em;
+--max-width: 1000px;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+body{
+    background-image: url("images/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    background-size: 500px 100%;
+}
+input{
+    cursor: pointer;
+}
+input:hover{
+    outline: 1px solid var(--Very-dark-violet); 
+}
+input:focus{
+    outline: 1px solid hsl(249, 99%, 64%);
+}
+.whole-container{
+    min-height: 100vh;
+    display: flex;
+    gap: var(--gap);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2em;
+}
+.card-images-container{
+    width: 500px;
+    min-height: 100vh;
+    position: relative;
+    /* margin-top: 50%; *//*use when the screen hits 1440 px */
+}
+.card-front{
+    position: absolute;
+    background: url('images/bg-card-front.png') no-repeat;
+    background-size: cover;
+    top: var(--front-top);
+    left: var(--front-left);
+    border-radius: 10px;
+}
+.card-front-contents,.card-back-contents{
+    min-width: 407px;
+    min-height: 205px;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: .2em;
+}
+.shapes-container{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    margin-bottom: 3em;
+}
+.big-white-circle{
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background: var(--White);
+}
+.small-transparent-circle{
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 2px solid var(--White);
+}
+.card-numbers-16{
+    font-size: 21px;
+    margin-bottom: 1.5em;
+    color: var(--White);
+}
+.card-user-name{
+    display: flex;
+    color: var(--White);
+    text-transform: uppercase;
+    justify-content: space-between;
+    font-size: 15px;
+}
+.card-back{
+    position: absolute;
+    background: url('images/bg-card-back.png') no-repeat;
+    background-size: cover;
+    top: var(--back-top);
+    left: var(--back-left);
+    border-radius: 10px;
+}
+.card-back .cvc{
+    position: absolute;
+    color: var(--White);
+    top: 6.3em;
+    left: 80%;
+}
+.cardholder-payment{
+    display: flex;
+    width: 40%;
+    max-width: 1000px;
+    flex-direction: column;
+}
+.cardholder-payment label{
+    text-transform: uppercase;
+    margin-top: 1.5em;
+    margin-bottom: .7em;
+}
+.cardholder-payment input{
+    border-radius: 9px;
+    border: 1px solid var(--Light-grayish-violet);
+    padding: 1.2em;
+    height: 3em;
+}
+.cardholder-payment
+ input::placeholder{
+    color: var(--Light-grayish-violet);
+}
+.flex-components{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: flex;
+    width: 100%;
+    gap: 2em;
+}
+.flex-components input{
+    margin-top: .5em;
+}
+.flex-row{
+    display: flex;
+    gap: 1em;
+}
+.flex-row input{
+    display: flex;
+    flex-direction: row;
+}
+.expiry-date input{
+    width: 100px;
+}
+.cardholder-payment-cvc input{
+    width: 100%;
+}
+.general-button{
+    padding: 1.2em;
+    border-radius: 9px;
+    width: 100%;
+    border-style: none;
+    background-color: var(--Very-dark-violet);
+    color: var(--White);
+    cursor: pointer;
+    transform: .3s ease;
+}
+.completed-popup{
+    width: 40%;
+    max-width: var(--max-width);
+    gap: 1em;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: 5s ease;
+}
+.completed-popup img{
+    width: 5em;
+    margin-bottom: 1em;
+}
+.completed-popup h1{
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+.completed-popup p{
+    margin-bottom: 1.5em;
+}
+.incorrect{
+    color: var(--Red__input-errors);
+    font-size: 12px;
+    margin-top: .5em;
+    display: none;
+}
+
+/* all the active classes */
+.incorrect.active{
+    display: block;
+}
+input.active{
+    outline: 2px solid var(--Red__input-errors);
+}
+.attribution { font-size: 11px; text-align: center; margin-top: 1em; }
+.attribution a { color: hsl(228, 45%, 44%); }
