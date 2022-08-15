@@ -13,8 +13,14 @@
 --back-top: 17em;
 --back-left: 6em;
 
+--mobile-front-left: -2em;
+--mobile-front-top: 11em;
+--mobile-back-top: 3em;
+--mobile-back-left: 2em;
+
 --gap: 6em;
 --max-width: 1000px;
+--border-radius: 7px;
 }
 
 *,
@@ -52,7 +58,6 @@ input:focus{
     width: 500px;
     min-height: 100vh;
     position: relative;
-    /* margin-top: 50%; *//*use when the screen hits 1440 px */
 }
 .card-front{
     position: absolute;
@@ -126,7 +131,7 @@ input:focus{
     margin-bottom: .7em;
 }
 .cardholder-payment input{
-    border-radius: 9px;
+    border-radius: var(--border-radius);
     border: 1px solid var(--Light-grayish-violet);
     padding: 1.2em;
     height: 3em;
@@ -137,7 +142,7 @@ input:focus{
 }
 .flex-components{
     margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     display: flex;
     width: 100%;
     gap: 2em;
@@ -156,12 +161,12 @@ input:focus{
 .expiry-date input{
     width: 100px;
 }
-.cardholder-payment-cvc input{
+.cardholder-payment-cvc, .cardholder-payment-cvc input{
     width: 100%;
 }
 .general-button{
     padding: 1.2em;
-    border-radius: 9px;
+    border-radius: var(--border-radius);
     width: 100%;
     border-style: none;
     background-color: var(--Very-dark-violet);
@@ -202,6 +207,82 @@ input:focus{
 }
 input.active{
     outline: 2px solid var(--Red__input-errors);
+}
+
+@media (min-width:1300px){
+    .card-front{
+        top: 15em;
+    }
+    .card-back{
+        top: 30em;
+    }
+}
+@media (max-width: 1000px){
+    .whole-container{
+        gap: 2em;
+    }
+    .card-front{
+        top: 8em;
+    }
+    .card-back{
+        top: 23em;
+    }
+}
+@media (max-width: 920px){
+    body{
+        background-image: url("images/bg-main-mobile.png");
+        background-repeat: no-repeat;
+        background-size: 100% 300px;
+    }
+    .whole-container{
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        gap: 0;
+    }
+    .card-images-container{
+        width: 100%;
+        min-height: 400px;
+        position: relative;
+    }
+    .card-front{
+        top: var(--mobile-front-top);
+        left: var(--mobile-front-left);
+        z-index: 99;
+        position: relative;
+        z-index: 99;
+    }
+    .card-back{
+        top: var(--mobile-back-top);
+        left: var(--mobile-back-left);
+    }
+    .cardholder-payment,.completed-popup{
+        width: 90%;
+        max-width: 700px;
+    }
+}
+@media (max-width: 550px){
+    .card-images-flex-container{
+        width: 80%;
+        padding: 0em .5em;
+        margin-bottom: 2em;
+    }
+    .card-front,.card-back{
+        width: 100%;
+        height: 14em;
+    }
+    .card-front-contents,.card-back-contents{
+        min-width: 7px;
+        min-height: 5px;
+    }
+    .card-numbers-16{
+        font-size: 16px;
+        margin-bottom: 1.5em;
+        color: var(--White);
+    }
+    .card-user-name{
+        font-size: 12px;
+    }
 }
 .attribution { font-size: 11px; text-align: center; margin-top: 1em; }
 .attribution a { color: hsl(228, 45%, 44%); }
